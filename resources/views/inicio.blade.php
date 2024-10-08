@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
-    <title>Inicio - Guardian Pet</title>
+    <title>Inicio</title>
 </head>
 
 <body class="h-screen bg-white flex flex-col items-center">
