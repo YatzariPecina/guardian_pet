@@ -22,8 +22,39 @@
         <div>
             <img src="img/user.png" alt="User Icon" class="w-6 h-6">
         </div>
-    </header>    
+    </header>
 
+    <main class="w-full max-w-screen-lg mt-8 px-4">
+        <div class="flex items-center justify-between mb-4">
+            <button class="text-2xl">
+                <img src="img/regresar.png" alt="Back arrow" class="w-6 h-6">
+            </button>
+            <h1 class="text-3xl font-bold text-center flex-grow">Perfil</h1>
+        </div>
+
+        <form class="space-y-6">
+            <div>
+                <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+            </div>
+
+            <div>
+                <label for="nueva_password" class="block text-sm font-medium text-gray-700">Nueva contraseña:</label>
+                <input type="password" id="nueva_password" name="nueva_password" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+            </div>
+
+            <div>
+                <label for="confirmar_password" class="block text-sm font-medium text-gray-700">Confirmar contraseña:</label>
+                <input type="password" id="confirmar_password" name="confirmar_password" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+            </div>
+
+            <div class="flex justify-center">
+                <button type="submit" class="bg-[#E9CF22] text-black font-semibold py-2 px-6 rounded-lg">
+                    Guardar cambios
+                </button>
+            </div>
+        </form>
+    </main>
 </body>
 
 </html>
