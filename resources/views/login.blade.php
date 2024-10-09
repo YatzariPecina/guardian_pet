@@ -15,19 +15,25 @@
             <h2 class="text-3xl font-bold mb-6 text-black">Guardian Pet</h2>
         </div>
 
-        <form class="w-full" action="#" method="POST"> 
+        <form class="w-full" action="{{ route('login') }}" method="POST">
             @csrf
             <div class="mb-4 flex items-center bg-white rounded-md shadow-sm">
                 <input type="email" name="correo" id="correo"
                     class="flex-grow px-3 py-2 bg-transparent border-none rounded-md focus:outline-none focus:ring-0 text-black placeholder-gray-500"
                     placeholder="Correo" required>
             </div>
+            @error('correo')
+            <span class="text-red-600 text-sm">{{ $message }}</span>
+            @enderror
             
             <div class="mb-4 flex items-center bg-white rounded-md shadow-sm">
                 <input type="password" name="password" id="password"
                     class="flex-grow px-3 py-2 bg-transparent border-none rounded-md focus:outline-none focus:ring-0 text-black placeholder-gray-500"
                     placeholder="Contraseña" required>
             </div>
+            @error('password')
+            <span class="text-red-600 text-sm">{{ $message }}</span>
+            @enderror
             
             <div class="flex-grow flex items-center justify-center mt-6">
                 <button type="submit"
@@ -36,11 +42,17 @@
                 </button>
             </div>
         </form>
-
+    
+        @if(session('error'))
+            <div class="text-red-600 text-sm mt-4">
+                {{ session('error') }}
+            </div>
+        @endif
+          
         <div class="mt-6 text-center text-black text-xs">
             <span>¿Aún no tienes cuenta?</span>
-            <a href="#" class="font-bold underline">Regístrate</a> 
-        </div>
+            <a href="/registro" class="font-bold underline">Regístrate</a> 
+        </div>        
     </div>
 </body>
 

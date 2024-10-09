@@ -26,9 +26,9 @@
 
     <main class="w-full max-w-screen-lg mt-8 px-4">
         <div class="flex items-center justify-between mb-4">
-            <button class="text-2xl">
+            <a href="/inicio" class="text-2xl">
                 <img src="img/regresar.png" alt="Back arrow" class="w-6 h-6">
-            </button>
+            </a>            
             <h1 class="text-3xl font-bold text-center flex-grow">Perfil</h1>
         </div>
 
@@ -49,7 +49,7 @@
             </div>
 
             <div class="flex justify-center">
-                <button type="submit" class="bg-[#E9CF22] text-black font-semibold py-2 px-6 rounded-lg">
+                <button type="submit" class="bg-[#E9CF22] text-black font-semibold py-2 px-6 rounded-lg hover:bg-[#e9bb2291]">
                     Guardar cambios
                 </button>
             </div>
