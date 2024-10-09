@@ -52,7 +52,7 @@ class LoginController extends Controller
 
         // Autenticamos el usuario
         $credentials = $request->only('correo', 'password');
-        
+
         if (Auth::attempt(['correo' => $credentials['correo'], 'password' => $credentials['password']])) {
             return redirect('/inicio');
         } else {
@@ -62,4 +62,9 @@ class LoginController extends Controller
         }
     }
 
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/')->with('success', 'Has cerrado sesión correctamente.');
+    }
 }
