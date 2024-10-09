@@ -15,45 +15,32 @@
             <h1 class="text-xs font-bold text-black">Guardian Pet</h1>
         </div>
         <nav class="flex space-x-12">
-            <a href="/CrudMascota" class="text-black font-semibold hover:underline">Mascotas</a> 
-            <a href="/CrudCitas" class="text-black font-semibold hover:underline">Recordatorios</a> 
-            <a href="/CrudVeterinarios" class="text-black font-semibold hover:underline">Veterinarios</a> 
+            <a href="/CrudMascota" class="text-black font-semibold hover:underline">Mascotas</a>
+            <a href="/CrudCitas" class="text-black font-semibold hover:underline">Recordatorios</a>
+            <a href="/CrudVeterinarios" class="text-black font-semibold hover:underline">Veterinarios</a>
         </nav>
         <div class="relative">
             <img src="img/user.png" alt="User Icon" class="w-6 h-6 cursor-pointer" id="userIcon">
             <div id="dropdownMenu" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10">
-                <a href="/perfil" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Editar información del perfil</a>
-                <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Cerrar sesión</a>
+                <a href="/perfil" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Editar información del
+                    perfil</a>
+                <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Cerrar
+                    sesión</a>
             </div>
         </div>
     </header>
 
-    <script>
-        const userIcon = document.getElementById('userIcon');
-        const dropdownMenu = document.getElementById('dropdownMenu');
-
-        userIcon.addEventListener('click', () => {
-            dropdownMenu.classList.toggle('hidden');
-        });
-
-        window.addEventListener('click', function(event) {
-            if (!userIcon.contains(event.target)) {
-                dropdownMenu.classList.add('hidden');
-            }
-        });
-    </script>
-
     <main class="w-full max-w-screen-lg mt-8 px-4">
 
         <div class="flex items-center justify-between mb-4">
-            <button class="text-2xl">
+            <a href="/inicio" class="text-2xl">
                 <img src="img/regresar.png" alt="Back arrow" class="w-6 h-6">
-            </button>
+            </a>
 
             <h1 class="text-3xl font-bold text-center flex-grow">Cheto</h1>
         </div>
 
-        <!-- Contenedor que divide el contenido en dos columnas -->
+        <!-- Contenedor para ser dividido -->
         <div class="flex justify-between">
 
             <!-- Columna Izquierda -->
@@ -70,16 +57,19 @@
                 <div class="mb-6">
                     <h3 class="text-lg font-semibold">Detalles de la mascota:</h3>
                     <div class="space-y-1">
+                        <p><span class="font-semibold">Especia:</span> Can</p>
                         <p><span class="font-semibold">Raza:</span> Mestizo</p>
                         <p><span class="font-semibold">Sexo:</span> Macho</p>
                         <p><span class="font-semibold">Edad:</span> 3 meses</p>
+                        <p><span class="font-semibold">Características:</span> Es bien cabron</p>
                     </div>
                 </div>
 
                 <!-- Botón Editar Mascota -->
-                <div class="mt-6">
+                <div class="mt-2 mb-5 ">
                     <button type="submit"
-                        class="bg-[#E9CF22] hover:bg-[#e9bb2250] text-black font-semibold py-2 px-6 rounded-lg">
+                        class="bg-[#E9CF22] hover:bg-[#e9bb2250] text-black font-semibold py-2 px-6 rounded-lg"
+                        onclick="window.location.href='/EditarDatos'">
                         Editar mascota
                     </button>
                 </div>
@@ -107,6 +97,9 @@
                     </div>
                 </div>
 
+                <!-- Línea pa dividir este pedo <- Gracias Luisana -->
+                <hr class="my-4 border-gray-300">
+
                 <!-- Vacunas -->
                 <div>
                     <h3 class="text-lg font-semibold">Vacunas:</h3>
@@ -123,6 +116,20 @@
     </main>
 
 
+    <script>
+        const userIcon = document.getElementById('userIcon');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+
+        userIcon.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        window.addEventListener('click', function(event) {
+            if (!userIcon.contains(event.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+    </script>
 </body>
 
 </html>
