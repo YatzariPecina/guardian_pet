@@ -24,6 +24,31 @@
         </div>
     </header>    
 
+    <main class="w-full max-w-screen-lg mt-8 px-4">
+        <!-- Pal regresar y el titulo -->
+        <div class="flex items-center justify-between mb-4">
+            <button class="text-2xl">
+                <img src="img/regresar.png" alt="Back arrow" class="w-6 h-6">
+            </button>
+            
+            <h1 class="text-3xl font-bold text-center flex-grow">Próximas Citas</h1>
+        </div>
+
+        <!-- Barra de búsqueda de perros malcriados-->
+        <div class="flex justify-center mb-4">
+            <div class="flex items-center border border-gray-400 rounded-lg p-2 w-2/3">
+                <input type="text" class="flex-grow outline-none px-2" placeholder="Buscar mascota...">
+                <button>
+                    <img src="img/buscar.png" alt="Buscar icon" class="w-6 h-6">
+                </button>
+            </div>
+        </div>
+
+        <!-- Línea pa dividir este pedo-->
+        <hr class="my-4 border-gray-300">
+
+        
+    </main>
 </body>
 
 </html>
