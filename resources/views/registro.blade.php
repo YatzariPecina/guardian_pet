@@ -56,7 +56,7 @@
                     </ul>
                 </div>
             @endif
-            
+
             <!-- Botón para registrarse -->
             <div class="flex-grow flex items-center justify-center mt-6">
                 <button type="submit"
@@ -65,7 +65,6 @@
                 </button>
             </div>
 
-            <!-- Botón de regresar -->
             <div class="flex-grow flex items-center justify-center mt-3">
                 <a href="/"
                     class="w-full flex justify-center py-2 px-4 text-sm font-medium rounded-md text-white bg-[#011752] hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#011752]">

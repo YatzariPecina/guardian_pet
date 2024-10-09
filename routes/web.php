@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 
 Route::post('/validar-registro', [LoginController::class, 'register'])->name('validar-registro');
+Route::post('/login', [LoginController::class, 'login'])->name('login');
 
 Route::get('/', function () {
     return view('login');
