@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
-    <title>Citas</title>
+    <title>Crud Citas</title>
 </head>
 
 <body class="h-screen bg-white flex flex-col items-center">
@@ -34,20 +34,53 @@
             <h1 class="text-3xl font-bold text-center flex-grow">Próximas Citas</h1>
         </div>
 
-        <!-- Barra de búsqueda de perros malcriados-->
+        <!-- Barra de búsqueda de citas-->
         <div class="flex justify-center mb-4">
             <div class="flex items-center border border-gray-400 rounded-lg p-2 w-2/3">
-                <input type="text" class="flex-grow outline-none px-2" placeholder="Buscar mascota...">
+                <input type="text" class="flex-grow outline-none px-2" placeholder="Buscar cita...">
                 <button>
                     <img src="img/buscar.png" alt="Buscar icon" class="w-6 h-6">
                 </button>
             </div>
         </div>
 
-        <!-- Línea pa dividir este pedo-->
+        <!-- Línea pa dividir -->
         <hr class="my-4 border-gray-300">
 
-        
+        <!-- Botón de nuevo registro -->
+        <div class="flex justify-start mb-4">
+            <button class="bg-[#E9CF22] text-black font-semibold py-2 px-6 rounded-lg">
+                Nuevo registro
+            </button>
+        </div>
+
+        <!-- Tarjetas de citas -->
+        <div class="grid grid-cols-2 gap-4 mb-8">
+            <div class="bg-[#ADDABE] p-4 rounded-lg flex justify-between items-center">
+                <div class="flex-grow">
+                    <p class="text-black">Cita 1</p>
+                    <p class="text-black">Fecha</p>
+                    <p class="text-black">Hora</p>
+                </div>
+                <div class="flex space-x-2">
+                    <button><img src="img/mirar.png" alt="Ver" class="w-5 h-5"></button>
+                    <button><img src="img/editar.png" alt="Editar" class="w-5 h-5"></button>
+                    <button><img src="img/eliminar.png" alt="Eliminar" class="w-5 h-5"></button>
+                </div>
+            </div>
+            <div class="bg-[#ADDABE] p-4 rounded-lg flex justify-between items-center">
+                <div class="flex-grow">
+                    <p class="text-black">Cita 2</p>
+                    <p class="text-black">Fecha</p>
+                    <p class="text-black">Hora</p>
+                </div>
+                <div class="flex space-x-2">
+                    <button><img src="img/mirar.png" alt="Ver" class="w-5 h-5"></button>
+                    <button><img src="img/editar.png" alt="Editar" class="w-5 h-5"></button>
+                    <button><img src="img/eliminar.png" alt="Eliminar" class="w-5 h-5"></button>
+                </div>
+            </div>
+        </div>
     </main>
 </body>
 
