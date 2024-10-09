@@ -24,75 +24,87 @@
         </div>
     </header>
 
-    <div class="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg">
-        
-        <!-- Header con la foto y nombre de la mascota -->
-        <div class="flex items-center space-x-4 mb-6">
-            <!-- Imagen de la mascota -->
-            <div class="w-32 h-32 rounded-md overflow-hidden">
-                <img src="/img/panzon.png" alt="Mascota" class="w-full h-full object-cover">
-            </div>
-            <!-- Nombre de la mascota -->
-        </div>
-        <!-- Detalles de la mascota -->
-        <div class="mb-6">
-            <h3 class="text-lg font-semibold">Detalles de la mascota:</h3>
-            <div class="space-y-2">
-                <p><span class="font-semibold">Raza:</span> Mestizo</p>
-                <p><span class="font-semibold">Sexo:</span> Macho</p>
-                <p><span class="font-semibold">Edad:</span> 3 años</p>
-            </div>
-        </div>
-        
-        <!-- Botón Editar Mascota -->
-        <div class="mt-6">
-            <button class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Editar mascota</button>
+
+    <main class="w-full max-w-screen-lg mt-8 px-4">
+
+        <div class="flex items-center justify-between mb-4">
+            <button class="text-2xl">
+                <img src="img/regresar.png" alt="Back arrow" class="w-6 h-6">
+            </button>
+
+            <h1 class="text-3xl font-bold text-center flex-grow">Cheto</h1>
         </div>
 
-        <!-- Próxima cita o vacuna -->
-        
-        <h2 class="text-2xl font-bold">Cheto</h2>
-        <div class="mb-6">
-            <h3 class="text-lg font-semibold">Próxima cita o vacuna:</h3>
-            <div class="space-y-4">
-                <!-- Primera Cita -->
-                <div class="flex items-center space-x-2 bg-blue-100 p-4 rounded-md">
-                    <div class="flex-grow">
-                        <p class="text-sm">Descripción de la cita/vacuna</p>
-                        <p class="text-xs text-gray-500">Fecha</p>
+        <!-- Contenedor que divide el contenido en dos columnas -->
+        <div class="flex justify-between">
+
+            <!-- Columna Izquierda -->
+            <div class="w-1/2">
+                <!-- Header con la foto y nombre de la mascota -->
+                <div class="flex items-center mb-2">
+                    <!-- Imagen de la mascota -->
+                    <div class="w-64 h-64 rounded-md overflow-hidden">
+                        <img src="/img/panzon.png" alt="Mascota" class="w-full h-full object-cover">
                     </div>
-                    <!-- Iconos de acciones -->
-                    <button class="text-blue-500 hover:text-blue-700">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12H9m0 0l3 3m-3-3l3-3" />
-                        </svg>
-                    </button>
-                    <button class="text-green-500 hover:text-green-700">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-                        </svg>
-                    </button>
-                    <button class="text-red-500 hover:text-red-700">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
+                </div>
+
+                <!-- Detalles de la mascota -->
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold">Detalles de la mascota:</h3>
+                    <div class="space-y-1">
+                        <p><span class="font-semibold">Raza:</span> Mestizo</p>
+                        <p><span class="font-semibold">Sexo:</span> Macho</p>
+                        <p><span class="font-semibold">Edad:</span> 3 meses</p>
+                    </div>
+                </div>
+
+                <!-- Botón Editar Mascota -->
+                <div class="mt-6">
+                    <button type="submit"
+                        class="bg-[#E9CF22] hover:bg-[#e9bb2250] text-black font-semibold py-2 px-6 rounded-lg">
+                        Editar mascota
                     </button>
                 </div>
-                <!-- Segunda Cita (puedes agregar más citas de la misma forma) -->
             </div>
-        </div>
-    
-        <!-- Vacunas -->
-        <div>
-            <h3 class="text-lg font-semibold">Vacunas:</h3>
-            <div class="space-y-4 bg-green-100 p-4 rounded-md">
-                <p>Vacuna 1 - Fecha</p>
-                <p>Vacuna 2 - Fecha</p>
+
+            <!-- Columna Derecha -->
+            <div class="w-full">
+                <!-- Próxima cita o vacuna -->
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold">Próxima cita o vacuna:</h3>
+                    <div class="space-y-4 mt-2">
+                        <!-- Primera Cita -->
+                        <div class="bg-green-100 p-4 rounded-lg flex justify-between items-center">
+                            <div class="flex-grow">
+                                <p class="text-black">Cita 1</p>
+                                <p class="text-black">Fecha</p>
+                                <p class="text-black">Hora</p>
+                            </div>
+                            <div class="flex space-x-2">
+                                <button><img src="img/mirar.png" alt="Ver" class="w-5 h-5"></button>
+                                <button><img src="img/editar.png" alt="Editar" class="w-5 h-5"></button>
+                                <button><img src="img/eliminar.png" alt="Eliminar" class="w-5 h-5"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vacunas -->
+                <div>
+                    <h3 class="text-lg font-semibold">Vacunas:</h3>
+                    <div class="space-y-4 bg-blue-100 p-4 rounded-md mt-1">
+                        <p class="font-semibold"><b>Vacuna 1</b> - 05/09/2024 - Vacuna Hpetavalente + Leptospira</p>
+                        <p class="font-semibold"><b>Vacuna 2</b> - 16/09/2024 - Nobivac Parvo C</p>
+                        <p class="font-semibold"><b>Vacuna 2</b> - 23/09/2024 - Vacuna Antirrábica Mérieux</p>
+                    </div>
+                </div>
             </div>
+
         </div>
-    
-    </div>
-    
+
+    </main>
+
+
 </body>
 
 </html>
