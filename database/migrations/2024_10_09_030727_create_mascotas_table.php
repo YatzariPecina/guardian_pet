@@ -19,7 +19,9 @@ return new class extends Migration
             $table->integer('edad');
             $table->string('sexo', 10);
             $table->string('caracteristicas');
+            $table->string('foto')->nullable();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            
             $table->timestamps();
         });
     }
