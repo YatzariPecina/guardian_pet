@@ -11,6 +11,15 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/perfil', [LoginController::class, 'showProfile'])->name('perfil');
 Route::put('/perfil/{id}', [LoginController::class, 'updateProfile'])->name('perfil.update');
 Route::post('/mascotas', [MascotaController::class, 'store'])->name('mascotas.store');
+Route::get('/CrudMascota', [MascotaController::class, 'index'])->name('crud.mascota');
+Route::get('/buscarMascota', [MascotaController::class, 'buscar'])->name('buscarMascota');
+Route::get('/mascotas', [MascotaController::class, 'index'])->name('mascotas.index');
+Route::delete('/mascotas/{mascota}', [MascotaController::class, 'destroy'])->name('mascotas.destroy');
+Route::get('/mascota/{id}/carnet', [MascotaController::class, 'showCarnet'])->name('mascota.carnet');
+
+Route::get('/EditarDatos/{id}', [MascotaController::class, 'editar'])->name('editarDatos');
+Route::post('/actualizarMascota/{id}', [MascotaController::class, 'actualizar'])->name('actualizarMascota');
+
 
 Route::get('/', function () {
     return view('login');
@@ -30,10 +39,6 @@ Route::get('/Carnet', function () {
 
 Route::get('/CrudCitas', function () {
     return view('Mascota.CrudCitas');
-});
-
-Route::get('/CrudMascota', function () {
-    return view('Mascota.CrudMascota');
 });
 
 Route::get('/EditarDatos', function () {

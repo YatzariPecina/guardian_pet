@@ -16,6 +16,13 @@ class Mascota extends Model
         'edad', 
         'sexo', 
         'caracteristicas', 
+        'foto', 
         'user_id'
     ];
+
+    // Relación de una mascota que pertenece a un usuario
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

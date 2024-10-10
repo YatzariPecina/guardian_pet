@@ -33,8 +33,8 @@
     <main class="w-full max-w-screen-lg mt-8 px-4">
 
         <div class="flex items-center justify-between mb-4">
-            <a href="/inicio" class="text-2xl">
-                <img src="img/regresar.png" alt="Back arrow" class="w-6 h-6">
+            <a href="{{ url()->previous() }}" class="text-2xl">
+                <img src="{{ asset('img/regresar.png') }}" alt="Back arrow" class="w-6 h-6">
             </a>
 
             <h1 class="text-3xl font-bold text-center flex-grow">Editar datos</h1>
@@ -48,12 +48,15 @@
                 <div class="flex items-center mb-2">
                     <!-- Imagen de la mascota -->
                     <div class="w-64 h-64 rounded-md overflow-hidden">
-                        <img src="/img/panzon.png" alt="Mascota" class="w-full h-full object-cover">
+                        <img src="{{ asset('storage/mascotas/' . $mascota->foto) }}" alt="Mascota"
+                            class="w-full h-full object-cover">
                     </div>
                 </div>
 
                 <!-- Botón cambiar foto -->
-                <form>
+                <form action="{{ route('actualizarMascota', $mascota->id) }}" method="POST"
+                    enctype="multipart/form-data">
+                    @csrf
                     <div class="mt-10">
                         <div class="col-span-2 -mt-6">
                             <label for="foto" class="block text-sm font-medium text-gray-700">Cambiar foto:</label>
@@ -61,42 +64,40 @@
                                 class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-[#24CE6B] file:text-white hover:file:bg-green-500">
                         </div>
                     </div>
-                    <!-- Botón Guardar cambios -->
+                    <div class="mt-6">
+                        <button type="submit"
+                            class="bg-[#E9CF22] hover:bg-[#e9bb2250] text-black font-semibold py-2 px-6 rounded-lg">
+                            Guardar cambios
+                        </button>
+                    </div><!-- Botón Cancelar -->
+                    <div class="mt-12">
+                        <button type="button"
+                            class="bg-[#E98222] hover:bg-[#e9822250] text-black font-semibold py-2 px-6 rounded-lg"
+                            onclick="window.location.href='/Carnet'">
+                            Cancelar
+                        </button>
+                    </div>
                 </form>
-                <div class="mt-6">
-                    <button type="submit"
-                        class="bg-[#E9CF22] hover:bg-[#e9bb2250] text-black font-semibold py-2 px-6 rounded-lg">
-                        Guardar cambios
-                    </button>
-                </div><!-- Botón Cancelar -->
-                <div class="mt-12">
-                    <button type="submit"
-                        class="bg-[#E98222] hover:bg-[#e9822250] text-black font-semibold py-2 px-6 rounded-lg"
-                        onclick="window.location.href='/Carnet'">
-                        Cancelar
-                    </button>
-                </div>
             </div>
 
             <!-- Div Derecha -->
             <div class="w-full">
-
                 <form class="grid gap-2">
                     <div>
                         <label for="nombre" class="block text-sm font-medium text-gray-700">Editar nombre:</label>
-                        <input type="text" id="nombre" name="nombre" value="Cheto"
+                        <input type="text" id="nombre" name="nombre" value="{{ $mascota->nombre }}"
                             class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                             placeholder="Nombre de la mascota">
                     </div>
                     <div>
                         <label for="edad" class="block text-sm font-medium text-gray-700">Editar edad:</label>
-                        <input type="number" id="edad" name="edad" value="3 meses"
+                        <input type="number" id="edad" name="edad" value="{{ $mascota->edad }}"
                             class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                             placeholder="Edad" min="0">
                     </div>
                     <div>
                         <label for="especie" class="block text-sm font-medium text-gray-700">Editar especie:</label>
-                        <input type="text" id="especie" name="especie" value="Can"
+                        <input type="text" id="especie" name="especie" value="{{ $mascota->especie }}"
                             class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                             placeholder="Especie">
                     </div>
@@ -104,14 +105,13 @@
                         <label for="sexo" class="block text-sm font-medium text-gray-700">Editar sexo:</label>
                         <select id="sexo" name="sexo"
                             class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            <option value="">Seleccione una opción</option>
-                            <option value="macho">Macho</option>
-                            <option value="hembra">Hembra</option>
+                            <option value="macho" {{ $mascota->sexo == 'macho' ? 'selected' : '' }}>Macho</option>
+                            <option value="hembra" {{ $mascota->sexo == 'hembra' ? 'selected' : '' }}>Hembra</option>
                         </select>
                     </div>
                     <div>
                         <label for="raza" class="block text-sm font-medium text-gray-700">Raza:</label>
-                        <input type="text" id="raza" name="raza" value="Mestizo"
+                        <input type="text" id="raza" name="raza" value="{{ $mascota->raza }}"
                             class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                             placeholder="Raza">
                     </div>
@@ -120,9 +120,11 @@
                             class="block text-sm font-medium text-gray-700">Características:</label>
                         <textarea id="caracteristicas" name="caracteristicas" rows="3"
                             class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            placeholder="Características"></textarea>
+                            placeholder="Características">{{ $mascota->caracteristicas }}</textarea>
                     </div>
                 </form>
+
+
 
                 <!-- Línea pa dividir este pedo <- Gracias Luisana x2 -->
                 <hr class="my-4 border-gray-300">
