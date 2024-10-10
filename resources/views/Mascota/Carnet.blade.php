@@ -37,7 +37,7 @@
                 <img src="{{ asset('img/regresar.png') }}" alt="Back arrow" class="w-6 h-6">
             </a>
 
-            <h1 class="text-3xl font-bold text-center flex-grow">Cheto</h1>
+            <h1 class="text-3xl font-bold text-center flex-grow">{{ $mascota->nombre }}</h1>
         </div>
 
         <!-- Contenedor para ser dividido -->
@@ -74,48 +74,48 @@
                         Editar mascota
                     </button>
                 </div>
+            </div>
 
-
-                <!-- Columna Derecha -->
-                <div class="w-full">
-                    <!-- Próxima cita o vacuna -->
-                    <div class="mb-6">
-                        <h3 class="text-lg font-semibold">Próxima cita o vacuna:</h3>
-                        <div class="space-y-4 mt-2">
-                            <!-- Primera Cita -->
-                            <div class="bg-green-100 p-4 rounded-lg flex justify-between items-center">
-                                <div class="flex-grow">
-                                    <p class="text-black">Cita 1</p>
-                                    <p class="text-black">Fecha</p>
-                                    <p class="text-black">Hora</p>
-                                </div>
-                                <div class="flex space-x-2">
-                                    <button><img src="{{ asset('img/mirar.png') }}" alt="Ver"
-                                            class="w-5 h-5"></button>
-                                    <button><img src="{{ asset('img/editar.png') }}" alt="Editar"
-                                            class="w-5 h-5"></button>
-                                    <button><img src="{{ asset('img/eliminar.png') }}" alt="Eliminar"
-                                            class="w-5 h-5"></button>
-                                </div>
+            <!-- Columna Derecha -->
+            <div class="w-3/4">
+                <!-- Próxima cita o vacuna -->
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold">Próxima cita:</h3>
+                    <div class="space-y-4 mt-2">
+                        <!-- Primera Cita -->
+                        <div class="bg-green-100 p-4 rounded-lg flex justify-between items-center">
+                            <div class="flex-grow">
+                                <p class="text-black">Cita 1</p>
+                                <p class="text-black">Fecha</p>
+                                <p class="text-black">Hora</p>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Línea pa dividir este pedo <- Gracias Luisana -->
-                    <hr class="my-4 border-gray-300">
-
-                    <!-- Vacunas -->
-                    <div>
-                        <h3 class="text-lg font-semibold">Vacunas:</h3>
-                        <div class="space-y-4 bg-blue-100 p-4 rounded-md mt-1">
-                            <p class="font-semibold"><b>Vacuna 1</b> - 05/09/2024 - Vacuna Hpetavalente + Leptospira</p>
-                            <p class="font-semibold"><b>Vacuna 2</b> - 16/09/2024 - Nobivac Parvo C</p>
-                            <p class="font-semibold"><b>Vacuna 2</b> - 23/09/2024 - Vacuna Antirrábica Mérieux</p>
+                            <div class="flex space-x-2">
+                                <button><img src="{{ asset('img/mirar.png') }}" alt="Ver"
+                                        class="w-5 h-5"></button>
+                                <button><img src="{{ asset('img/editar.png') }}" alt="Editar"
+                                        class="w-5 h-5"></button>
+                                <button><img src="{{ asset('img/eliminar.png') }}" alt="Eliminar"
+                                        class="w-5 h-5"></button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Línea para dividir este pedo <- Gracias Luisana -->
+                <hr class="my-4 border-gray-300">
+
+                <!-- Vacunas -->
+                <div>
+                    <h3 class="text-lg font-semibold">Historial:</h3>
+                    <div class="space-y-4 bg-blue-100 p-4 rounded-md mt-1">
+                        <p class="font-semibold"><b>Vacuna 1</b> - 05/09/2024 - Vacuna Hpetavalente + Leptospira</p>
+                        <p class="font-semibold"><b>Vacuna 2</b> - 16/09/2024 - Nobivac Parvo C</p>
+                        <p class="font-semibold"><b>Vacuna 3</b> - 23/09/2024 - Vacuna Antirrábica Mérieux</p>
+                    </div>
+                </div>
             </div>
+        </div>
+
 
     </main>
 

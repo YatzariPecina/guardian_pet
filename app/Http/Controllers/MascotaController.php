@@ -100,10 +100,7 @@ class MascotaController extends Controller
 
     public function editar($id)
 {
-    // Obtener la mascota por su ID
     $mascota = Mascota::findOrFail($id);
-
-    // Pasar los datos a la vista
     return view('Mascota.EditarDatos', compact('mascota'));
 }
 
@@ -111,18 +108,18 @@ public function actualizar(Request $request, $id)
 {
     $mascota = Mascota::findOrFail($id);
 
-    // Validación de datos
+    // Validar los datos
     $request->validate([
         'nombre' => 'required|string|max:255',
-        'edad' => 'required|integer',
+        'edad' => 'required|integer|min:0',
         'especie' => 'required|string|max:255',
         'sexo' => 'required|string',
         'raza' => 'required|string|max:255',
         'caracteristicas' => 'nullable|string',
-        'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
     ]);
 
-    // Actualizar información de la mascota
+    // Actualizar los datos
     $mascota->nombre = $request->nombre;
     $mascota->edad = $request->edad;
     $mascota->especie = $request->especie;
@@ -130,17 +127,16 @@ public function actualizar(Request $request, $id)
     $mascota->raza = $request->raza;
     $mascota->caracteristicas = $request->caracteristicas;
 
-    // Subir la nueva foto si se ha proporcionado
+    // Actualizar la foto si se ha subido una nueva
     if ($request->hasFile('foto')) {
-        $file = $request->file('foto');
-        $filename = time() . '.' . $file->getClientOriginalExtension();
-        $path = $file->storeAs('mascotas', $filename, 'public');
-        $mascota->foto = $filename;
+        $path = $request->file('foto')->store('public/mascotas');
+        $mascota->foto = $path;
     }
 
+    // Guardar los cambios en la base de datos
     $mascota->save();
 
-    return redirect()->route('carnet')->with('success', 'Datos de la mascota actualizados correctamente.');
+    return redirect()->route('mascota.carnet', ['id' => $id])->with('success', 'Los datos de la mascota han sido actualizados.');
 }
 
 }

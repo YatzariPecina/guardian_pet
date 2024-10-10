@@ -16,9 +16,8 @@ Route::get('/buscarMascota', [MascotaController::class, 'buscar'])->name('buscar
 Route::get('/mascotas', [MascotaController::class, 'index'])->name('mascotas.index');
 Route::delete('/mascotas/{mascota}', [MascotaController::class, 'destroy'])->name('mascotas.destroy');
 Route::get('/mascota/{id}/carnet', [MascotaController::class, 'showCarnet'])->name('mascota.carnet');
-
-Route::get('/EditarDatos/{id}', [MascotaController::class, 'editar'])->name('editarDatos');
-Route::post('/actualizarMascota/{id}', [MascotaController::class, 'actualizar'])->name('actualizarMascota');
+Route::get('/EditarDatos/{id}', [MascotaController::class, 'editar'])->name('mascota.editar');  
+Route::post('/ActualizarDatos/{id}', [MascotaController::class, 'actualizar'])->name('mascota.actualizar');
 
 
 Route::get('/', function () {

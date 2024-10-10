@@ -89,7 +89,10 @@
                             </button>
 
                             <!-- Botón Editar Carnet -->
-                            <button><img src="img/editar.png" alt="Edit" class="w-5 h-5"></button>
+                            <button onclick="window.location.href='/EditarDatos/{{ $mascota->id }}'">
+                                <img src="img/editar.png" alt="Edit" class="w-5 h-5">
+                            </button>
+
                         </div>
 
                         <!-- Formulario de eliminación -->
