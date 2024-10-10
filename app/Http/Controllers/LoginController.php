@@ -3,13 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use App\Models\User;
 
 class LoginController extends Controller
 {
+
+    public function showProfile()
+{
+    $user = Auth::user();
+
+    if (!$user) {
+        return redirect('/')->withErrors(['error' => 'Debes iniciar sesión primero']);
+    }
+
+    return view('perfil', compact('user'));
+}
+
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -61,6 +73,42 @@ class LoginController extends Controller
             ]);
         }
     }
+
+    public function updateProfile(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+
+        $validator = Validator::make($request->all(), [
+            'nombre' => 'required|string|max:100',
+            'correo' => 'required|email|unique:users,correo,' . $user->id,
+            'telefono' => 'required|string|max:10',
+            'password' => 'nullable|string|min:8|confirmed',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $user->nombre = $request->input('nombre');
+        $user->correo = $request->input('correo');
+        $user->telefono = $request->input('telefono');
+
+        // Si se envía una nueva contraseña, actualizarla
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->input('password'));
+        }
+
+        // Guarda los cambios
+        try {
+            $user->save();
+            return redirect('/perfil')->with('success', 'Información actualizada correctamente');
+        } catch (\Exception $e) {
+            return back()->withErrors(['error' => 'Error al guardar los cambios: ' . $e->getMessage()]);
+        }
+    }
+
 
     public function logout()
     {

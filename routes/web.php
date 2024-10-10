@@ -8,6 +8,8 @@ use App\Http\Controllers\MascotaController;
 Route::post('/validar-registro', [LoginController::class, 'register'])->name('validar-registro');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/perfil', [LoginController::class, 'showProfile'])->name('perfil');
+Route::put('/perfil/{id}', [LoginController::class, 'updateProfile'])->name('perfil.update');
 Route::post('/mascotas', [MascotaController::class, 'store'])->name('mascotas.store');
 
 Route::get('/', function () {
@@ -56,10 +58,6 @@ Route::get('/DetallesVeterinario', function () {
 
 Route::get('/MisVeterinarios', function () {
     return view('Veterinario.MisVeterinarios');
-});
-
-Route::get('/perfil', function () {
-    return view('perfil');
 });
 
 Route::get('/logout', function () {
