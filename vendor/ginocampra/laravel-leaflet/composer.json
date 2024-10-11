@@ -1,0 +1,26 @@
+{
+    "name": "ginocampra/laravel-leaflet",
+    "description": "Allows you to create pages with Leaflet maps in an integrated way with Laravel",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Ginocampra\\LaravelLeaflet\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Gino Campra",
+            "email": "gino@gcampra.com.br"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ginocampra\\LaravelLeaflet\\LaravelLeafletServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {}
+}
