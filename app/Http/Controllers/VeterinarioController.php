@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Veterinario;
 use Illuminate\Http\Request;
 
 class VeterinarioController extends Controller
@@ -11,7 +12,7 @@ class VeterinarioController extends Controller
      */
     public function index()
     {
-        //
+        return view('Veterinario.MisVeterinarios');
     }
 
     /**
@@ -19,7 +20,7 @@ class VeterinarioController extends Controller
      */
     public function create()
     {
-        //
+        return view('Veterinario.createVeterinario');
     }
 
     /**
@@ -27,7 +28,9 @@ class VeterinarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validar = $request->validated();
+
+        Veterinario::created($validar);
     }
 
     /**
@@ -35,7 +38,7 @@ class VeterinarioController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('Veterinario.DetallesVeterinario');
     }
 
     /**

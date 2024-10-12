@@ -18,7 +18,7 @@
         <nav class="flex space-x-12">
             <a href="/CrudMascota" class="text-black font-semibold hover:underline">Mascotas</a>
             <a href="/CrudCitas" class="text-black font-semibold hover:underline">Recordatorios</a>
-            <a href="/MisVeterinarios" class="text-black font-semibold hover:underline">Mis veterinarios</a>
+            <a href="{{ route('veterinario.index') }}" class="text-black font-semibold hover:underline">Mis veterinarios</a>
         </nav>
         <div class="relative">
             <img src="img/user.png" alt="User Icon" class="w-6 h-6 cursor-pointer" id="userIcon">
@@ -40,12 +40,10 @@
             </a>
             <!-- Mis veterinarios -->
             <h1 class="text-3xl font-bold text-center flex-grow">Mis veterinarios</h1>
-            <a href="/createVeterinario"
+            <a href="{{ route('veterinario.create') }}"
                 class="bg-[#E9CF22] text-black font-semibold py-2 px-6 rounded-lg text-center hover:bg-[#e9bb2291]">
                 Añadir veterinario
             </a>
-
-
         </div>
 
         <!-- Línea pa dividir este pedo-->

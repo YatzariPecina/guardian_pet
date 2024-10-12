@@ -17,7 +17,7 @@
         <nav class="flex space-x-12">
             <a href="/CrudMascota" class="text-black font-semibold hover:underline">Mascotas</a>
             <a href="/CrudCitas" class="text-black font-semibold hover:underline">Recordatorios</a>
-            <a href="/MisVeterinarios" class="text-black font-semibold hover:underline">Mis veterinarios</a>
+            <a href="{{ route('veterinario.index') }}" class="text-black font-semibold hover:underline">Mis veterinarios</a>
         </nav>
         <div class="relative">
             <img src="img/user.png" alt="User Icon" class="w-6 h-6 cursor-pointer" id="userIcon">
@@ -40,7 +40,7 @@
         </div>
 
         <!-- Formulario de registro de mascota -->
-        <form class="grid grid-cols-2 gap-6" method="POST" action="{{ route('mascotas.store') }}"
+        <form class="grid grid-cols-2 gap-6" method="POST" enctype="multipart/form-data" action="{{ route('mascotas.store') }}"
             enctype="multipart/form-data">
             @csrf
             <div>
@@ -84,7 +84,7 @@
             <div class="col-span-2 flex justify-center mt-6">
                 <button type="submit"
                     class="bg-[#E9CF22] text-black font-semibold py-2 px-6 rounded-lg hover:bg-[#e9bb2291]">
-                    Registrar mascota
+                    Registrar veterinario
                 </button>
             </div>
         </form>
