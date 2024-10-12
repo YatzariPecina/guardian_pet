@@ -64,6 +64,10 @@ Route::get('/MisVeterinarios', function () {
     return view('Veterinario.MisVeterinarios');
 });
 
+Route::get('/createVeterinario', function () {
+    return view('Veterinario.createVeterinario');
+});
+
 Route::get('/logout', function () {
     Auth::logout(); 
     return redirect('/'); 

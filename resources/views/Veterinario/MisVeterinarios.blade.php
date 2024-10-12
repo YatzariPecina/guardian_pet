@@ -18,7 +18,7 @@
         <nav class="flex space-x-12">
             <a href="/CrudMascota" class="text-black font-semibold hover:underline">Mascotas</a>
             <a href="/CrudCitas" class="text-black font-semibold hover:underline">Recordatorios</a>
-            <a href="/CrudVeterinarios" class="text-black font-semibold hover:underline">Veterinarios</a>
+            <a href="/MisVeterinarios" class="text-black font-semibold hover:underline">Mis veterinarios</a>
         </nav>
         <div class="relative">
             <img src="img/user.png" alt="User Icon" class="w-6 h-6 cursor-pointer" id="userIcon">
@@ -38,8 +38,14 @@
             <a href="/inicio" class="text-2xl">
                 <img src="img/regresar.png" alt="Back arrow" class="w-6 h-6">
             </a>
-
+            <!-- Mis veterinarios -->
             <h1 class="text-3xl font-bold text-center flex-grow">Mis veterinarios</h1>
+            <a href="/createVeterinario"
+                class="bg-[#E9CF22] text-black font-semibold py-2 px-6 rounded-lg text-center hover:bg-[#e9bb2291]">
+                Añadir veterinario
+            </a>
+
+
         </div>
 
         <!-- Línea pa dividir este pedo-->
@@ -56,10 +62,7 @@
 
                 <img src="img/VET1.png" alt="Dog 1" class="w-32 h-32 object-cover rounded-lg mr-4">
                 <div class="flex-grow">
-                    <h4 class="font-semibold mt-2">Ubicación:</h4>
-                    <p>Ing. Américo Villarreal Guerra 38, Solidaridad Voluntad y Trabajo II, 87089 Cdad. Victoria,
-                        Tamps.</p>
-
+                    <h4 class="font-semibold mt-2">Nombre</h4>
                     <h4 class="font-semibold mt-2">Horario:</h4>
                     <p>Lunes a viernes: 8:00 a 20:00 horas<br>
                         Sábados: 8:00 a 15:00 horas</p>

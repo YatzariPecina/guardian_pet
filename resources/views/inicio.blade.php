@@ -15,9 +15,9 @@
             <h1 class="text-xs font-bold text-black">Guardian Pet</h1>
         </div>
         <nav class="flex space-x-12">
-            <a href="/CrudMascota" class="text-black font-semibold hover:underline">Mascotas</a> 
-            <a href="/CrudCitas" class="text-black font-semibold hover:underline">Recordatorios</a> 
-            <a href="/CrudVeterinarios" class="text-black font-semibold hover:underline">Veterinarios</a> 
+            <a href="/CrudMascota" class="text-black font-semibold hover:underline">Mascotas</a>
+            <a href="/CrudCitas" class="text-black font-semibold hover:underline">Recordatorios</a>
+            <a href="/MisVeterinarios" class="text-black font-semibold hover:underline">Mis veterinarios</a>
         </nav>
         <div class="relative">
             <img src="img/user.png" alt="User Icon" class="w-6 h-6 cursor-pointer" id="userIcon">
