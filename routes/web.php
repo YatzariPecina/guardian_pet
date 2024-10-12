@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MascotaController;
+use App\Http\Controllers\VeterinarioController;
 
 Route::post('/validar-registro', [LoginController::class, 'register'])->name('validar-registro');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
@@ -18,7 +19,6 @@ Route::delete('/mascotas/{mascota}', [MascotaController::class, 'destroy'])->nam
 Route::get('/mascota/{id}/carnet', [MascotaController::class, 'showCarnet'])->name('mascota.carnet');
 Route::get('/EditarDatos/{id}', [MascotaController::class, 'editar'])->name('mascota.editar');  
 Route::post('/ActualizarDatos/{id}', [MascotaController::class, 'actualizar'])->name('mascota.actualizar');
-
 
 Route::get('/', function () {
     return view('login');
@@ -52,21 +52,7 @@ Route::get('/RegistroMascota', function () {
     return view('Mascota.RegistroMascota');
 });
 
-Route::get('/CrudVeterinarios', function () {
-    return view('Veterinario.CrudVeterinarios');
-});
-
-Route::get('/DetallesVeterinario', function () {
-    return view('Veterinario.DetallesVeterinario');
-});
-
-Route::get('/MisVeterinarios', function () {
-    return view('Veterinario.MisVeterinarios');
-});
-
-Route::get('/createVeterinario', function () {
-    return view('Veterinario.createVeterinario');
-});
+Route::resource('veterinario', VeterinarioController::class);
 
 Route::get('/logout', function () {
     Auth::logout(); 
