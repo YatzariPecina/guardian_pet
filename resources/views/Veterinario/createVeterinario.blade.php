@@ -56,12 +56,6 @@
                     placeholder="Descripción" min="0" required>
             </div>
             <div>
-                <label for="servicios" class="block text-sm font-medium text-gray-700">Servicios:</label>
-                <input type="text" id="servicios" name="servicios"
-                    class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                    placeholder="Servicios" required>
-            </div>
-            <div>
                 <label for="ubicacion" class="block text-sm font-medium text-gray-700">Ubicación:</label>
                 <input type="text" id="ubicacion" name="ubicacion"
                     class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"

@@ -25,7 +25,7 @@ class MascotaController extends Controller
         // Comprobar si se subió una foto
         if ($request->hasFile('foto')) {
             // Guardar la imagen
-            $path = $request->file('foto')->store('mascotas', 'public'); // Guardar en public/img/mascotas
+            $path = $request->file('foto')->store('mascotas', 'public'); // Guardar en public/img/mascotas 
 
             // Mostrar el path para depuración
             \Log::info('Imagen guardada en: ' . $path);
