@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MascotaController;
 use App\Http\Controllers\VeterinarioController;
+use App\Http\Controllers\CitasController;
 
 Route::post('/validar-registro', [LoginController::class, 'register'])->name('validar-registro');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
@@ -19,6 +20,8 @@ Route::delete('/mascotas/{mascota}', [MascotaController::class, 'destroy'])->nam
 Route::get('/mascota/{id}/carnet', [MascotaController::class, 'showCarnet'])->name('mascota.carnet');
 Route::get('/EditarDatos/{id}', [MascotaController::class, 'editar'])->name('mascota.editar');  
 Route::post('/ActualizarDatos/{id}', [MascotaController::class, 'actualizar'])->name('mascota.actualizar');
+Route::get('/RegistroCita', [CitasController::class, 'show'])->name('cita.registrar');
+Route::post('/RegistroCita', [CitasController::class, 'store'])->name('citas.store');
 
 Route::get('/', function () {
     return view('login');
@@ -42,10 +45,6 @@ Route::get('/CrudCitas', function () {
 
 Route::get('/EditarDatos', function () {
     return view('Mascota.EditarDatos');
-});
-
-Route::get('/RegistroCita', function () {
-    return view('Mascota.RegistroCita');
 });
 
 Route::get('/RegistroMascota', function () {

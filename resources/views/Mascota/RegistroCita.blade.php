@@ -42,16 +42,17 @@
             <h1 class="text-3xl font-bold text-center flex-grow">Nueva cita</h1>
         </div>
 
-        <form class="space-y-6">
+        <form class="space-y-6" method="POST" action="{{ route('citas.store') }}">
+            @csrf 
             <!-- Campo de seleccionar mascota con select2 -->
             <div>
                 <label for="mascota" class="block text-sm font-medium text-gray-700">Nombre de la mascota:</label>
                 <select id="mascota" name="mascota"
                     class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm select2">
                     <option value="">Selecciona una mascota</option>
-                    <option value="1">Luka</option>
-                    <option value="2">Teo</option>
-                    <option value="3">Layla</option>
+                    @foreach ($mascotas as $mascota)
+                        <option value="{{ $mascota->id }}">{{ $mascota->nombre }}</option>
+                    @endforeach
                 </select>
             </div>
 
@@ -61,15 +62,20 @@
                 <select id="veterinario" name="veterinario"
                     class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm select2">
                     <option value="">Selecciona un veterinario</option>
-                    <option value="1">Dr. Martínez</option>
-                    <option value="2">Dra. Espinosa</option>
-                    <option value="3">Dr. Olazaran</option>
+                    @foreach ($veterinarios as $veterinario)
+                        <option value="{{ $veterinario->id }}">{{ $veterinario->nombre }}</option>
+                    @endforeach
                 </select>
             </div>
 
             <div>
                 <label for="fecha" class="block text-sm font-medium text-gray-700">Fecha de la cita:</label>
                 <input type="date" id="fecha" name="fecha"
+                    class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+            </div>
+            <div>
+                <label for="hora" class="block text-sm font-medium text-gray-700">Hora de la cita:</label>
+                <input type="time" id="hora" name="hora"
                     class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
             </div>
 
