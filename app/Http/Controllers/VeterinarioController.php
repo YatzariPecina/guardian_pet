@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Veterinario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Storage;
 
 class VeterinarioController extends Controller
 {
@@ -13,7 +14,9 @@ class VeterinarioController extends Controller
      */
     public function index()
     {
+        //Para vaciar los datos 
         $veterinarios = Veterinario::all();
+
         return view('Veterinario.MisVeterinarios', [
             'veterinarios' => $veterinarios,
         ]);
@@ -41,8 +44,11 @@ class VeterinarioController extends Controller
             'foto' => 'required|image|mimes:jpg,png,jpeg,gif|max:2048',
         ]);
 
-        $veterinarioImage = time() . '.' . $request->foto->getClientOriginalExtension();
-        $request->foto->storeAs('', $veterinarioImage);
+        if ($request->isMethod('POST')) {
+            $foto = $request->file('foto');
+            $veterinarioImage = time() . '.' . $request->foto->getClientOriginalExtension();
+            $foto->storeAs('', $veterinarioImage, "public");
+        }
 
         // Crear el enlace simbólico
         Artisan::call('storage:link --force');
@@ -88,7 +94,7 @@ class VeterinarioController extends Controller
             'telefono' => 'required',
             'foto' => 'nullable|image|mimes:jpg,png,jpeg,gif|max:2048',
         ]);
-    
+
         $veterinario->update($validatedData);
 
         return redirect()->route('veterinario.index')->with('success', 'Veterinario eliminado con éxito.');

@@ -66,7 +66,7 @@
                         </button>
                     </form>
 
-                    <img src="{{ $veterinario->foto }}" alt="Dog 1" class="w-32 h-32 object-cover rounded-lg mr-4">
+                    <img src="{{ asset(Storage::disk('public')->path($veterinario->foto)) }}" alt="Dog 1" class="w-32 h-32 object-cover rounded-lg mr-4">
                     <div class="flex-grow">
                         <h4 class="font-semibold mt-2">Nombre {{ $veterinario->nombre }}</h4>
                         <h4 class="font-semibold mt-2">Horario:</h4>
