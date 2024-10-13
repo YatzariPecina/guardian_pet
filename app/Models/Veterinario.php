@@ -16,4 +16,9 @@ class Veterinario extends Model
         'telefono',
         'foto',
     ];
+
+    public function getPhotoPathAttribute($value)
+    {
+        return asset('storage/' . $value);
+    }
 }

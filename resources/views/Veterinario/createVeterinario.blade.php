@@ -40,7 +40,7 @@
         </div>
 
         <!-- Formulario de registro de mascota -->
-        <form class="grid grid-cols-2 gap-6" method="POST" enctype="multipart/form-data" action="{{ route('mascotas.store') }}"
+        <form class="grid grid-cols-2 gap-6" method="POST" enctype="multipart/form-data" action="{{ route('veterinario.store') }}"
             enctype="multipart/form-data">
             @csrf
             <div>

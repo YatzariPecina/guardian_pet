@@ -18,7 +18,8 @@
         <nav class="flex space-x-12">
             <a href="/CrudMascota" class="text-black font-semibold hover:underline">Mascotas</a>
             <a href="/CrudCitas" class="text-black font-semibold hover:underline">Recordatorios</a>
-            <a href="{{ route('veterinario.index') }}" class="text-black font-semibold hover:underline">Mis veterinarios</a>
+            <a href="{{ route('veterinario.index') }}" class="text-black font-semibold hover:underline">Mis
+                veterinarios</a>
         </nav>
         <div class="relative">
             <img src="img/user.png" alt="User Icon" class="w-6 h-6 cursor-pointer" id="userIcon">
@@ -51,38 +52,41 @@
 
         <!-- Veterinarios guardados -->
         <div>
-            <!-- Mi Vet 1 -->
-            <div class="bg-[#ADDABE] flex p-4 rounded-lg relative">
-                <!-- Botón de cierre -->
-                <button class="absolute top-2 right-2 mx-2 text-2xl text-red-600" onclick="removeVet(this)">
-                    <i class="fas fa-times"></i> <!-- Icono de cerrar -->
-                </button>
+            <!-- Mi Vet -->
+            @forelse ($veterinarios as $veterinario)
+                <div class="bg-[#ADDABE] flex p-4 rounded-lg relative">
+                    <!-- Botón de cierre -->
+                    <button class="absolute top-2 right-2 mx-2 text-2xl text-red-600" onclick="removeVet(this)">
+                        <i class="fas fa-times"></i> <!-- Icono de cerrar -->
+                    </button>
 
-                <img src="img/VET1.png" alt="Dog 1" class="w-32 h-32 object-cover rounded-lg mr-4">
-                <div class="flex-grow">
-                    <h4 class="font-semibold mt-2">Nombre</h4>
-                    <h4 class="font-semibold mt-2">Horario:</h4>
-                    <p>Lunes a viernes: 8:00 a 20:00 horas<br>
-                        Sábados: 8:00 a 15:00 horas</p>
-                </div>
+                    <img src="{{ Storage::disk('veterinarios')->url($veterinario->foto) }}" alt="Dog 1" class="w-32 h-32 object-cover rounded-lg mr-4">
+                    <div class="flex-grow">
+                        <h4 class="font-semibold mt-2">Nombre {{ $veterinario->nombre }}</h4>
+                        <h4 class="font-semibold mt-2">Horario:</h4>
+                        <p>{{ $veterinario->horario }}</p>
+                    </div>
 
-                <!-- Botones a la derecha del texto -->
-                <div class="flex flex-col justify-between">
-                    <p class="font-semibold mt-2">Acciones:</p>
-                    <div class="flex flex-col space-y-2">
-                        <button type="submit"
-                            class="bg-[#E9CF22] hover:bg-[#e9bb2250] text-black font-semibold py-2 px-6 rounded-lg"
-                            onclick="window.location.href='/DetallesVeterinario'">
-                            Ver detalles
-                        </button>
-                        <button type="submit"
-                            class="bg-[#E98222] hover:bg-[#e982229c] text-black font-semibold py-2 px-6 rounded-lg"
-                            onclick="window.location.href='#'">
-                            Opinar
-                        </button>
+                    <!-- Botones a la derecha del texto -->
+                    <div class="flex flex-col justify-between">
+                        <p class="font-semibold mt-2">Acciones:</p>
+                        <div class="flex flex-col space-y-2">
+                            <button type="submit"
+                                class="bg-[#E9CF22] hover:bg-[#e9bb2250] text-black font-semibold py-2 px-6 rounded-lg"
+                                onclick="window.location.href='/DetallesVeterinario'">
+                                Ver detalles
+                            </button>
+                            <button type="submit"
+                                class="bg-[#E98222] hover:bg-[#e982229c] text-black font-semibold py-2 px-6 rounded-lg"
+                                onclick="window.location.href='#'">
+                                Opinar
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @empty
+                <p>No has registrado ningun veterinario.</p>
+            @endforelse
         </div>
 
         <script>

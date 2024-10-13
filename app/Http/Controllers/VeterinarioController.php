@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Veterinario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 
 class VeterinarioController extends Controller
 {
@@ -12,7 +13,10 @@ class VeterinarioController extends Controller
      */
     public function index()
     {
-        return view('Veterinario.MisVeterinarios');
+        $veterinarios = Veterinario::all();
+        return view('Veterinario.MisVeterinarios', [
+            'veterinarios' => $veterinarios,
+        ]);
     }
 
     /**
@@ -28,9 +32,31 @@ class VeterinarioController extends Controller
      */
     public function store(Request $request)
     {
-        $validar = $request->validated();
+        $validar = $request->validate([
+            'nombre' => 'required',
+            'descripcion' => 'required',
+            'ubicacion' => 'required',
+            'horario' => 'required',
+            'telefono' => 'required',
+            'foto' => 'required|image|mimes:jpg,png,jpeg,gif|max:2048',
+        ]);
 
-        Veterinario::created($validar);
+        $veterinarioImage = time() . '.' . $request->foto->getClientOriginalExtension();
+        $request->foto->storeAs('veterinarios', $veterinarioImage);
+
+        // Crear el enlace simbólico
+    Artisan::call('storage:link --force');
+
+        Veterinario::create([
+            'nombre' => $validar['nombre'],
+            'descripcion' => $validar['descripcion'],
+            'ubicacion' => $validar['ubicacion'],
+            'horario' => $validar['horario'],
+            'telefono' => $validar['telefono'],
+            'foto' => $veterinarioImage,
+        ]);
+
+        return redirect()->route('veterinario.index')->with('success', 'Registro creado con éxito.');
     }
 
     /**
