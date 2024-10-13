@@ -23,6 +23,9 @@ Route::post('/ActualizarDatos/{id}', [MascotaController::class, 'actualizar'])->
 Route::get('/RegistroCita', [CitasController::class, 'show'])->name('cita.registrar');
 Route::post('/RegistroCita', [CitasController::class, 'store'])->name('citas.store');
 Route::get('/CrudCitas', [CitasController::class, 'index'])->name('citas.index');
+Route::get('/EditarCita/{id}', [CitasController::class, 'modify'])->name('citas.editar');
+Route::post('/ActualizarCita/{id}', [CitasController::class, 'update'])->name('citas.actualizar');
+Route::delete('/EliminarCita/{id}', [CitasController::class, 'delete'])->name('citas.delete');
 
 Route::get('/', function () {
     return view('login');
@@ -39,10 +42,6 @@ Route::get('/inicio', function () {
 Route::get('/Carnet', function () {
     return view('Mascota.Carnet');
 });
-
-/*Route::get('/CrudCitas', function () {
-    return view('Mascota.CrudCitas');
-});*/
 
 Route::get('/EditarDatos', function () {
     return view('Mascota.EditarDatos');

@@ -67,44 +67,33 @@
         @foreach ($citas as $cita)
             <div class="bg-[#ADDABE] p-4 rounded-lg flex justify-between items-center">
                 <div class="flex-grow">
+                    <p class="text-black">Mascota: {{ $cita->mascota->nombre }}</p>
                     <p class="text-black">Motivo: {{ $cita->motivo }}</p>
                     <p class="text-black">Fecha: {{ $cita->fecha }}</p>
                     <p class="text-black">Hora: {{ $cita->hora }}</p>
+                    <p class="text-black">Estado: {{ $cita->estado }}</p>
                 </div>
                 <div class="flex space-x-2">
                     <button><img src="img/mirar.png" alt="Ver" class="w-5 h-5"></button>
-                    <button><img src="img/editar.png" alt="Editar" class="w-5 h-5"></button>
-                    <button><img src="img/eliminar.png" alt="Eliminar" class="w-5 h-5"></button>
+                    <button onclick="window.location.href='/EditarCita/{{ $cita->id }}'">
+                        <img src="img/editar.png" alt="Editar" class="w-5 h-5">
+                    </button>
+                    <button onclick="confirmDelete({{ $cita->id }})">
+                        <img src="img/eliminar.png" alt="Eliminar" class="w-5 h-5">
+                    </button>
                 </div>
+                <!-- Formulario de eliminación -->
+                <form id="delete-form-{{ $cita->id }}"
+                    action="{{ route('citas.delete', $cita->id) }}" method="POST" style="display: none;">
+                    @csrf
+                    @method('DELETE')
+                </form>
             </div>
         @endforeach
-            <!--<div class="bg-[#ADDABE] p-4 rounded-lg flex justify-between items-center">
-                <div class="flex-grow">
-                    <p class="text-black">Cita 1</p>
-                    <p class="text-black">Fecha</p>
-                    <p class="text-black">Hora</p>
-                </div>
-                <div class="flex space-x-2">
-                    <button><img src="img/mirar.png" alt="Ver" class="w-5 h-5"></button>
-                    <button><img src="img/editar.png" alt="Editar" class="w-5 h-5"></button>
-                    <button><img src="img/eliminar.png" alt="Eliminar" class="w-5 h-5"></button>
-                </div>
-            </div>
-            <div class="bg-[#ADDABE] p-4 rounded-lg flex justify-between items-center">
-                <div class="flex-grow">
-                    <p class="text-black">Cita 2</p>
-                    <p class="text-black">Fecha</p>
-                    <p class="text-black">Hora</p>
-                </div>
-                <div class="flex space-x-2">
-                    <button><img src="img/mirar.png" alt="Ver" class="w-5 h-5"></button>
-                    <button><img src="img/editar.png" alt="Editar" class="w-5 h-5"></button>
-                    <button><img src="img/eliminar.png" alt="Eliminar" class="w-5 h-5"></button>
-                </div>
-            </div>-->
         </div>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         const userIcon = document.getElementById('userIcon');
         const dropdownMenu = document.getElementById('dropdownMenu');
@@ -118,6 +107,22 @@
                 dropdownMenu.classList.add('hidden');
             }
         });
+        function confirmDelete(mascotaId) {
+            Swal.fire({
+                title: '¿Estás seguro de eliminar la cita?',
+                text: "Esta acción no se puede deshacer.",
+                icon: 'warning',
+                showCancelButton: true,
+                cancelButtonColor: '#3085d6',
+                confirmButtonColor: '#d33',
+                cancelButtonText: 'Cancelar',
+                confirmButtonText: 'Eliminar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById(`delete-form-${mascotaId}`).submit();
+                }
+            });
+        }
     </script>
 </body>
 
