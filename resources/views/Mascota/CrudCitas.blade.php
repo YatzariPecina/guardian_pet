@@ -64,7 +64,21 @@
 
         <!-- Tarjetas de citas -->
         <div class="grid grid-cols-2 gap-4 mb-8">
+        @foreach ($citas as $cita)
             <div class="bg-[#ADDABE] p-4 rounded-lg flex justify-between items-center">
+                <div class="flex-grow">
+                    <p class="text-black">Motivo: {{ $cita->motivo }}</p>
+                    <p class="text-black">Fecha: {{ $cita->fecha }}</p>
+                    <p class="text-black">Hora: {{ $cita->hora }}</p>
+                </div>
+                <div class="flex space-x-2">
+                    <button><img src="img/mirar.png" alt="Ver" class="w-5 h-5"></button>
+                    <button><img src="img/editar.png" alt="Editar" class="w-5 h-5"></button>
+                    <button><img src="img/eliminar.png" alt="Eliminar" class="w-5 h-5"></button>
+                </div>
+            </div>
+        @endforeach
+            <!--<div class="bg-[#ADDABE] p-4 rounded-lg flex justify-between items-center">
                 <div class="flex-grow">
                     <p class="text-black">Cita 1</p>
                     <p class="text-black">Fecha</p>
@@ -87,7 +101,7 @@
                     <button><img src="img/editar.png" alt="Editar" class="w-5 h-5"></button>
                     <button><img src="img/eliminar.png" alt="Eliminar" class="w-5 h-5"></button>
                 </div>
-            </div>
+            </div>-->
         </div>
     </main>
 

@@ -17,6 +17,12 @@ class CitasController extends Controller
         $veterinarios = Veterinario::all();
         return view('Mascota.RegistroCita', compact('mascotas', 'veterinarios'));
     }
+    public function index() {
+        $user = auth()->user();
+        // Obtener las mascotas del usuario y las citas de ellas 
+        $citas = $user->mascotas()->with('citas')->get()->pluck('citas')->flatten();
+        return view('Mascota.CrudCitas', compact('citas'));
+    }
 
     public function store(Request $request) {
         $validatedData = $request->validate([

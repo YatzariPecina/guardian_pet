@@ -25,4 +25,8 @@ class Mascota extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+    public function citas()
+    {
+        return $this->hasMany(Citas::class);
+    }
 }

@@ -22,6 +22,7 @@ Route::get('/EditarDatos/{id}', [MascotaController::class, 'editar'])->name('mas
 Route::post('/ActualizarDatos/{id}', [MascotaController::class, 'actualizar'])->name('mascota.actualizar');
 Route::get('/RegistroCita', [CitasController::class, 'show'])->name('cita.registrar');
 Route::post('/RegistroCita', [CitasController::class, 'store'])->name('citas.store');
+Route::get('/CrudCitas', [CitasController::class, 'index'])->name('citas.index');
 
 Route::get('/', function () {
     return view('login');
@@ -39,9 +40,9 @@ Route::get('/Carnet', function () {
     return view('Mascota.Carnet');
 });
 
-Route::get('/CrudCitas', function () {
+/*Route::get('/CrudCitas', function () {
     return view('Mascota.CrudCitas');
-});
+});*/
 
 Route::get('/EditarDatos', function () {
     return view('Mascota.EditarDatos');
