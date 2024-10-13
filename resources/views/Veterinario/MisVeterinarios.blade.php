@@ -12,10 +12,10 @@
 <body class="h-screen bg-white flex flex-col items-center">
     <header class="bg-[#24CE6B] w-full flex justify-between items-center px-12 py-4 relative">
         <div class="flex items-center space-x-6">
-            <a href="/inicio"> 
+            <a href="/inicio">
                 <img src="img/logo_guardian_pet.png" alt="Guardian Pet Logo" class="w-8 h-8 object-contain">
             </a>
-            <a href="/inicio" class="text-xs font-bold text-black">Guardian Pet</a> 
+            <a href="/inicio" class="text-xs font-bold text-black">Guardian Pet</a>
         </div>
         <nav class="flex space-x-12">
             <a href="/CrudMascota" class="text-black font-semibold hover:underline">Mascotas</a>
@@ -58,11 +58,15 @@
             @forelse ($veterinarios as $veterinario)
                 <div class="bg-[#ADDABE] flex p-4 rounded-lg relative">
                     <!-- Botón de cierre -->
-                    <button class="absolute top-2 right-2 mx-2 text-2xl text-red-600" onclick="removeVet(this)">
-                        <i class="fas fa-times"></i> <!-- Icono de cerrar -->
-                    </button>
+                    <form action="{{ route('veterinario.destroy', $veterinario->id) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="absolute top-2 right-2 mx-2 text-2xl text-red-600">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </form>
 
-                    <img src="{{ Storage::disk('veterinarios')->url($veterinario->foto) }}" alt="Dog 1" class="w-32 h-32 object-cover rounded-lg mr-4">
+                    <img src="{{ $veterinario->foto }}" alt="Dog 1" class="w-32 h-32 object-cover rounded-lg mr-4">
                     <div class="flex-grow">
                         <h4 class="font-semibold mt-2">Nombre {{ $veterinario->nombre }}</h4>
                         <h4 class="font-semibold mt-2">Horario:</h4>
@@ -73,16 +77,16 @@
                     <div class="flex flex-col justify-between">
                         <p class="font-semibold mt-2">Acciones:</p>
                         <div class="flex flex-col space-y-2">
-                            <button type="submit"
+                            <a type="submit"
                                 class="bg-[#E9CF22] hover:bg-[#e9bb2250] text-black font-semibold py-2 px-6 rounded-lg"
-                                onclick="window.location.href='/DetallesVeterinario'">
+                                href="{{ route('veterinario.show', $veterinario->id) }}">
                                 Ver detalles
-                            </button>
-                            <button type="submit"
-                                class="bg-[#E98222] hover:bg-[#e982229c] text-black font-semibold py-2 px-6 rounded-lg"
+                            </a>
+                            <a type="submit"
+                                class="bg-[#E98222] hover:bg-[#e982229c] text-black text-center font-semibold py-2 px-6 rounded-lg"
                                 onclick="window.location.href='#'">
-                                Opinar
-                            </button>
+                                Editar
+                            </a>
                         </div>
                     </div>
                 </div>

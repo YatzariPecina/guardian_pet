@@ -42,10 +42,10 @@ class VeterinarioController extends Controller
         ]);
 
         $veterinarioImage = time() . '.' . $request->foto->getClientOriginalExtension();
-        $request->foto->storeAs('veterinarios', $veterinarioImage);
+        $request->foto->storeAs('', $veterinarioImage);
 
         // Crear el enlace simbólico
-    Artisan::call('storage:link --force');
+        Artisan::call('storage:link --force');
 
         Veterinario::create([
             'nombre' => $validar['nombre'],
@@ -62,9 +62,9 @@ class VeterinarioController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Veterinario $veterinario)
     {
-        return view('Veterinario.DetallesVeterinario');
+        return view('Veterinario.DetallesVeterinario', compact('veterinario'));
     }
 
     /**
@@ -86,8 +86,10 @@ class VeterinarioController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Veterinario $veterinario)
     {
-        //
+        $veterinario->delete();
+
+        return redirect()->route('veterinario.index')->with('success', 'Veterinario eliminado con éxito.');
     }
 }

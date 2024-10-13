@@ -30,16 +30,9 @@ return [
 
     'disks' => [
 
-        'veterinarios' => [
-            'driver' => 'local',
-            'root' => storage_path('app/public/veterinarios'),
-            'url' => env('APP_URL') . '/storage/public/veterinarios',
-            'visibility' => 'public',
-        ],
-
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
+            'root' => storage_path('app'),
             'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
         ],

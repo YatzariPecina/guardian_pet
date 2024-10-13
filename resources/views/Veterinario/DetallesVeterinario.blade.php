@@ -48,31 +48,6 @@
                     </div>
                 </div>
 
-                <!-- Calificaciones y opiniones-->
-                <h4 class="font-semibold mt-5 mb-3">Opiniones: </h4>
-
-                <div class="grid grid-cols-1 gap-6 mx-2">
-                    <div class="flex items-start space-x-4">
-                        <!-- Imagen circular -->
-                        <img src="img/perfil1.jpg" alt="Opinion 1" class="w-16 h-16 object-cover rounded-full">
-
-                        <div class="flex flex-col justify-center">
-                            <!-- Estrellas utilizando Font Awesome Icons -->
-                            <div class="flex space-x-1 text-yellow-500">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                            <p class="text-justify">Excelente servicio, buen trato a las mascotas y precios económicos,
-                                super recomendada la veterinaria.</p>
-                        </div>
-
-                    </div>
-                    <hr class="my-1 border-gray-300">
-                </div>
-
                 <div class="grid grid-cols-1 gap-6 mx-2">
                     <div class="flex items-start space-x-4">
                         <!-- Imagen circular -->
