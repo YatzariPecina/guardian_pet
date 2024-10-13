@@ -11,8 +11,10 @@
 <body class="h-screen bg-white flex flex-col items-center">
     <header class="bg-[#24CE6B] w-full flex justify-between items-center px-12 py-4 relative">
         <div class="flex items-center space-x-6">
-            <img src="{{ asset('img/logo_guardian_pet.png') }}" alt="Guardian Pet Logo" class="w-8 h-8 object-contain">
-            <h1 class="text-xs font-bold text-black">Guardian Pet</h1>
+            <a href="/inicio"> 
+                <img src="{{ asset('img/logo_guardian_pet.png') }}" alt="Guardian Pet Logo" class="w-8 h-8 object-contain">
+            </a>
+            <a href="/inicio" class="text-xs font-bold text-black">Guardian Pet</a> 
         </div>
         <nav class="flex space-x-12">
             <a href="/CrudMascota" class="text-black font-semibold hover:underline">Mascotas</a>
@@ -116,10 +118,6 @@
                 </div>
             </form>
         </div>
-
-
-
-
     </main>
 
     <script>
