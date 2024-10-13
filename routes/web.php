@@ -17,9 +17,12 @@ Route::get('/', function () {
 
 // Ruta para procesar el login con el método POST
 Route::post('/login', [LoginController::class, 'login'])->name('login.post');
-
 Route::post('/validar-registro', [LoginController::class, 'register'])->name('validar-registro');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::get('/registro', function () {
+    return view('registro');
+});
 
 // Rutas protegidas con el middleware 'auth'
 Route::middleware(['auth'])->group(function () {
