@@ -70,17 +70,28 @@ class VeterinarioController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Veterinario $veterinario)
     {
-        //
+        return view('Veterinario.editVeterinario', compact('veterinario'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Veterinario $veterinario)
     {
-        //
+        $validatedData = $request->validate([
+            'nombre' => 'required',
+            'descripcion' => 'required',
+            'ubicacion' => 'required',
+            'horario' => 'required',
+            'telefono' => 'required',
+            'foto' => 'nullable|image|mimes:jpg,png,jpeg,gif|max:2048',
+        ]);
+    
+        $veterinario->update($validatedData);
+
+        return redirect()->route('veterinario.index')->with('success', 'Veterinario eliminado con éxito.');
     }
 
     /**

@@ -47,37 +47,16 @@
                         <img src="/img/VET1.png" alt="Mascota" class="w-full h-full object-cover">
                     </div>
                 </div>
-
-                <div class="grid grid-cols-1 gap-6 mx-2">
-                    <div class="flex items-start space-x-4">
-                        <!-- Imagen circular -->
-                        <img src="img/perfil2.jpg" alt="Opinion 2" class="w-16 h-16 object-cover rounded-full">
-
-                        <div class="flex flex-col justify-center">
-                            <!-- Estrellas utilizando Font Awesome Icons -->
-                            <div class="flex space-x-1 text-yellow-500">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="text-justify">La mejor atención, el veterinario es muy humano y
-                                su práctica profesional es muy atinada. ¡Más que recomendable</p>
-                        </div>
-                    </div>
-                    <hr class="my-1 border-gray-300">
-                </div>
             </div>
 
             <!-- Columna Derecha -->
             <div class="w-1/2 mt-8 mx-4">
                 <div class="flex items-center justify-between mb-4">
-                    <a href="/inicio" class="text-2xl">
+                    <a href="{{ route('veterinario.index') }}" class="text-2xl">
                         <img src="img/regresar.png" alt="Back arrow" class="w-6 h-6">
                     </a>
 
-                    <h1 class="text-2xl font-bold text-center flex-grow">Centro Veterinario 3 de Abril</h1>
+                    <h1 class="text-2xl font-bold text-center flex-grow">{{ $veterinario->nombre }}</h1>
                 </div>
 
                 <!-- Línea pa dividir este pedo <- gracias a luisarna salas -->
@@ -86,29 +65,17 @@
                 <!-- Servicios que ofrece -->
                 <div class="mb-6">
                     <div>
-                        <p class="text-justify">El Centro Veterinario 3 de Abril es un centro veterinario ubicado en la
-                            ciudad de Victoria, Tamaulipas. Ofrece una amplia variedad de servicios para mascotas,
-                            incluyendo vacunación, desparasitación, consulta general, cirugía y hospitalización. El
-                            centro también cuenta con un laboratorio de diagnóstico y un área de radiología.</p>
-
-                        <h4 class="font-semibold mt-5">Servicios: </h4>
-                        <ul class="list-disc list-outside ml-20">
-                            <li>Vacunación</li>
-                            <li>Desparasitación</li>
-                            <li>Consulta general</li>
-                            <li>Cirugía</li>
-                            <li>Hospitalización</li>
-                            <li>Laboratorio de diagnóstico</li>
-                            <li>Radiología</li>
-                        </ul>
+                        <p class="text-justify">
+                            {{ $veterinario->descripcion }}
+                        </p>
 
                         <h4 class="font-semibold mt-2">Ubicación: </h4>
-                        <p>Ing. Américo Villarreal Guerra 38, Solidaridad Voluntad y Trabajo II, 87089 Cdad. Victoria,
-                            Tamps.</p>
+                        <p>
+                            {{ $veterinario->ubicacion }}
+                        </p>
 
                         <h4 class="font-semibold mt-2">Horario: </h4>
-                        <p>Lunes a viernes: 8:00 a 20:00 horas<br>
-                            Sábados: 8:00 a 15:00 horas</p>
+                        <p>{{ $veterinario->horario }}</p>
                     </div>
                 </div>
 
@@ -119,20 +86,11 @@
                 <div>
                     <h3 class="text-lg font-semibold">Contacto:</h3>
                     <div class="space-y-1">
-                        <p class="font-semibold"><b>Veterinario:</b> M.V.Z. Jesus Antonio Olazarna Mora</p>
-                        <p class="font-semibold"><b>Especialidad:</b> Bienestar animal</p>
-                        <p class="font-semibold"><b>Telefono:</b> +52 (834) 123 4567</p>
-                        <p class="font-semibold"><b>Correo electronico:</b> vet3dabril@gmail.com</p>
+                        <p class="font-semibold"><b>Veterinario:</b> {{ $veterinario->nombre }}</p>
+                        <p class="font-semibold"><b>Especialidad:</b></p>
+                        <p class="font-semibold"><b>Telefono:</b>{{ $veterinario->telefono }}</p>
+                        <p class="font-semibold"><b>Correo electronico:</b></p>
                     </div>
-                </div>
-
-                <!-- Botón agregar a Mis Veterinarios -->
-                <div class="mt-5 mb-5 item flex justify-center">
-                    <button id="addVetButton" type="button"
-                        class="bg-[#24CE6B] hover:bg-green-500 text-black font-semibold py-2 px-6 rounded-lg"
-                        onclick="changeButtonText()">
-                        Agregar veterinario
-                    </button>
                 </div>
             </div>
 

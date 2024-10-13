@@ -77,14 +77,12 @@
                     <div class="flex flex-col justify-between">
                         <p class="font-semibold mt-2">Acciones:</p>
                         <div class="flex flex-col space-y-2">
-                            <a type="submit"
-                                class="bg-[#E9CF22] hover:bg-[#e9bb2250] text-black font-semibold py-2 px-6 rounded-lg"
+                            <a class="bg-[#E9CF22] hover:bg-[#e9bb2250] text-black font-semibold py-2 px-6 rounded-lg"
                                 href="{{ route('veterinario.show', $veterinario->id) }}">
                                 Ver detalles
                             </a>
-                            <a type="submit"
-                                class="bg-[#E98222] hover:bg-[#e982229c] text-black text-center font-semibold py-2 px-6 rounded-lg"
-                                onclick="window.location.href='#'">
+                            <a class="bg-[#E98222] hover:bg-[#e982229c] text-black text-center font-semibold py-2 px-6 rounded-lg"
+                                href="{{ route('veterinario.edit', $veterinario->id) }}">
                                 Editar
                             </a>
                         </div>
