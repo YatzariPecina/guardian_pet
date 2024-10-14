@@ -93,6 +93,14 @@
                 </textarea>
             </div>
 
+            <div>
+                <label for="estado" class="block text-sm font-medium text-gray-700">Estado de la cita:</label>
+                <select id="estado" name="estado" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3">
+                    <option value="Sin realizar" {{ $citas->estado == 'Sin realizar' ? 'selected' : '' }}>Sin realizar</option>
+                    <option value="Realizada" {{ $citas->estado == 'Realizada' ? 'selected' : '' }}>Realizada</option>
+                </select>
+            </div>
+
             <div class="flex justify-center mt-6">
                 <button type="submit" class="bg-[#E9CF22] text-black font-semibold py-2 px-6 rounded-lg">
                     Actualizar cita

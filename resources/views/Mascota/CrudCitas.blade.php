@@ -63,7 +63,6 @@
             </button>
         </div>
 
-
         <!-- Tarjetas de citas -->
         <div class="grid grid-cols-2 gap-4 mb-8">
         @foreach ($citas as $cita)
@@ -84,7 +83,6 @@
                         <img src="img/eliminar.png" alt="Eliminar" class="w-5 h-5">
                     </button>
                 </div>
-                <!-- Formulario de eliminación -->
                 <form id="delete-form-{{ $cita->id }}"
                     action="{{ route('citas.delete', $cita->id) }}" method="POST" style="display: none;">
                     @csrf
@@ -109,7 +107,7 @@
                 dropdownMenu.classList.add('hidden');
             }
         });
-        function confirmDelete(mascotaId) {
+        function confirmDelete(citaId) {
             Swal.fire({
                 title: '¿Estás seguro de eliminar la cita?',
                 text: "Esta acción no se puede deshacer.",
@@ -121,7 +119,7 @@
                 confirmButtonText: 'Eliminar'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    document.getElementById(`delete-form-${mascotaId}`).submit();
+                    document.getElementById(`delete-form-${citaId}`).submit();
                 }
             });
         }
