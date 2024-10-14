@@ -13,7 +13,7 @@
     <header class="bg-[#24CE6B] w-full flex justify-between items-center px-12 py-4 relative">
         <div class="flex items-center space-x-6">
             <a href="/inicio"> 
-                <img src="img/logo_guardian_pet.png" alt="Guardian Pet Logo" class="w-8 h-8 object-contain">
+                <img src="{{ asset('img/logo_guardian_pet.png') }}"  alt="Guardian Pet Logo" class="w-8 h-8 object-contain">
             </a>
             <a href="/inicio" class="text-xs font-bold text-black">Guardian Pet</a> 
         </div>
@@ -23,7 +23,7 @@
             <a href="{{ route('veterinario.index') }}" class="text-black font-semibold hover:underline">Mis veterinarios</a>
         </nav>
         <div class="relative">
-            <img src="img/user.png" alt="User Icon" class="w-6 h-6 cursor-pointer" id="userIcon">
+            <img src="{{ asset('img/user.png') }}" alt="User Icon" class="w-6 h-6 cursor-pointer" id="userIcon">
             <div id="dropdownMenu" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10">
                 <a href="/perfil" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Editar información del
                     perfil</a>
@@ -53,13 +53,13 @@
             <div class="w-1/2 mt-8 mx-4">
                 <div class="flex items-center justify-between mb-4">
                     <a href="{{ route('veterinario.index') }}" class="text-2xl">
-                        <img src="img/regresar.png" alt="Back arrow" class="w-6 h-6">
+                        <img src="{{ asset('img/regresar.png') }}" alt="Back arrow" class="w-6 h-6">
                     </a>
 
                     <h1 class="text-2xl font-bold text-center flex-grow">{{ $veterinario->nombre }}</h1>
                 </div>
 
-                <!-- Línea pa dividir este pedo <- gracias a luisarna salas -->
+                <!-- Línea pa dividir-->
                 <hr class="my-4 border-gray-300">
 
                 <!-- Servicios que ofrece -->

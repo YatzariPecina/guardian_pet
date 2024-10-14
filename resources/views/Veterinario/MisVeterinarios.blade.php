@@ -12,19 +12,18 @@
 <body class="h-screen bg-white flex flex-col items-center">
     <header class="bg-[#24CE6B] w-full flex justify-between items-center px-12 py-4 relative">
         <div class="flex items-center space-x-6">
-            <a href="/inicio">
-                <img src="img/logo_guardian_pet.png" alt="Guardian Pet Logo" class="w-8 h-8 object-contain">
+            <a href="/inicio"> 
+                <img src="{{ asset('img/logo_guardian_pet.png') }}"  alt="Guardian Pet Logo" class="w-8 h-8 object-contain">
             </a>
-            <a href="/inicio" class="text-xs font-bold text-black">Guardian Pet</a>
+            <a href="/inicio" class="text-xs font-bold text-black">Guardian Pet</a> 
         </div>
         <nav class="flex space-x-12">
             <a href="/CrudMascota" class="text-black font-semibold hover:underline">Mascotas</a>
             <a href="/CrudCitas" class="text-black font-semibold hover:underline">Recordatorios</a>
-            <a href="{{ route('veterinario.index') }}" class="text-black font-semibold hover:underline">Mis
-                veterinarios</a>
+            <a href="{{ route('veterinario.index') }}" class="text-black font-semibold hover:underline">Mis veterinarios</a>
         </nav>
         <div class="relative">
-            <img src="img/user.png" alt="User Icon" class="w-6 h-6 cursor-pointer" id="userIcon">
+            <img src="{{ asset('img/user.png') }}" alt="User Icon" class="w-6 h-6 cursor-pointer" id="userIcon">
             <div id="dropdownMenu" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10">
                 <a href="/perfil" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Editar información del
                     perfil</a>
