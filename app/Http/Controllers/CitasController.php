@@ -37,21 +37,19 @@ class CitasController extends Controller
     
     public function update(Request $request, $id) {
         $citas = Citas::findOrFail($id);
-    
+
         $validatedData = $request->validate([
             'motivo' => 'required|string|max:255',
             'fecha' => 'required|date',
-            'hora' => 'required|date_format:H:i',
             'estado' => 'required|string',
             'mascota' => 'required|exists:mascotas,id',
             'veterinario' => 'required|exists:veterinarios,id',
         ]);
-        $horaCompleta = $request->hora . ':00';
     
         // Actualización de los campos
         $citas->motivo = $request->motivo;
         $citas->fecha = $request->fecha;
-        $citas->hora = $horaCompleta;
+        $citas->hora = $request->hora;
         $citas->estado = $request->estado;
         $citas->mascota_id = $request->mascota;
         $citas->veterinario_id = $request->veterinario;
