@@ -16,7 +16,7 @@
     <header class="bg-[#24CE6B] w-full flex justify-between items-center px-12 py-4 relative">
         <div class="flex items-center space-x-6">
             <a href="/inicio"> 
-                <img src="img/logo_guardian_pet.png" alt="Guardian Pet Logo" class="w-8 h-8 object-contain">
+                <img src="../img/logo_guardian_pet.png" alt="Guardian Pet Logo" class="w-8 h-8 object-contain">
             </a>
             <a href="/inicio" class="text-xs font-bold text-black">Guardian Pet</a> 
         </div>
@@ -45,6 +45,7 @@
 
         <form class="space-y-6" method="POST" action="{{ route('citas.actualizar', $citas->id) }}">
             @csrf 
+            @method('PUT')
             <!-- Campo de seleccionar mascota con select2 -->
             <div>
                 <label for="mascota" class="block text-sm font-medium text-gray-700">Nombre de la mascota:</label>
@@ -91,6 +92,14 @@
                 <textarea id="motivo" name="motivo" rows="3" class="mt-1 block w-full border border-gray-300 rounded-md">
                     {{ $citas->motivo }}
                 </textarea>
+            </div>
+
+            <div>
+                <label for="estado" class="block text-sm font-medium text-gray-700">Estado de la cita:</label>
+                <select id="estado" name="estado" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3">
+                    <option value="Sin realizar" {{ $citas->estado == 'Sin realizar' ? 'selected' : '' }}>Sin realizar</option>
+                    <option value="Realizada" {{ $citas->estado == 'Realizada' ? 'selected' : '' }}>Realizada</option>
+                </select>
             </div>
 
             <div class="flex justify-center mt-6">

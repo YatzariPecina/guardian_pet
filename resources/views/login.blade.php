@@ -15,7 +15,7 @@
             <h2 class="text-3xl font-bold mb-6 text-black">Guardian Pet</h2>
         </div>
 
-        <form class="w-full" action="{{ route('login') }}" method="POST">
+        <form class="w-full" action="{{ route('login.post') }}" method="POST">
             @csrf
             <div class="mb-4 flex items-center bg-white rounded-md shadow-sm">
                 <input type="email" name="correo" id="correo"

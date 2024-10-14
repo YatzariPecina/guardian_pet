@@ -11,12 +11,11 @@
 <body class="h-screen bg-white flex flex-col items-center">
     <header class="bg-[#24CE6B] w-full flex justify-between items-center px-12 py-4 relative">
         <div class="flex items-center space-x-6">
-            <div class="flex items-center space-x-6">
-                <a href="/inicio"> 
-                    <img src="img/logo_guardian_pet.png" alt="Guardian Pet Logo" class="w-8 h-8 object-contain">
-                </a>
-                <a href="/inicio" class="text-xs font-bold text-black">Guardian Pet</a> 
-            </div>
+            <a href="/inicio"> 
+                <img src="img/logo_guardian_pet.png" alt="Guardian Pet Logo" class="w-8 h-8 object-contain">
+            </a>
+            <a href="/inicio" class="text-xs font-bold text-black">Guardian Pet</a> 
+        </div>
         <nav class="flex space-x-12">
             <a href="/CrudMascota" class="text-black font-semibold hover:underline">Mascotas</a> 
             <a href="/CrudCitas" class="text-black font-semibold hover:underline">Recordatorios</a> 
@@ -29,8 +28,8 @@
                 <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Cerrar sesión</a>
             </div>
         </div>
-    </header>          
-
+    </header>  
+    
     <main class="w-full max-w-screen-lg mt-8 px-4">
         <!-- Pal regresar y el titulo -->
         <div class="flex items-center justify-between mb-4">
