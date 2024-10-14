@@ -43,7 +43,7 @@
     </section>
 
     <section class="w-full max-w-screen-lg mt-8">
-        <h2 class="text-black font-semibold mb-4">Próximas vacunas:</h2>
+        <h2 class="text-black font-semibold mb-4">Próximas recordatorios:</h2>
         <div class="space-y-4">
             <div class="bg-[#ADDABE] p-4 rounded-lg flex justify-between items-center">
                 <p class="text-black">Vacuna 1</p>
