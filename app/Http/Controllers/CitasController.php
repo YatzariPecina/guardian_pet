@@ -35,36 +35,39 @@ class CitasController extends Controller
         return view('Mascota.EditarCita', compact('citas', 'mascotas', 'veterinarios'));
     }
     
-
     public function update(Request $request, $id) {
         $citas = Citas::findOrFail($id);
-
-        $request->validate([
+    
+        $validatedData = $request->validate([
             'motivo' => 'required|string|max:255',
             'fecha' => 'required|date',
             'hora' => 'required|date_format:H:i',
+            'estado' => 'required|string',
             'mascota' => 'required|exists:mascotas,id',
             'veterinario' => 'required|exists:veterinarios,id',
         ]);
-
+        $horaCompleta = $request->hora . ':00';
+    
+        // Actualización de los campos
         $citas->motivo = $request->motivo;
         $citas->fecha = $request->fecha;
-        $citas->hora = $request->hora;
-        $citas->estado = "Sin realizar";
+        $citas->hora = $horaCompleta;
+        $citas->estado = $request->estado;
         $citas->mascota_id = $request->mascota;
         $citas->veterinario_id = $request->veterinario;
-
+        
         $citas->save();
-
+    
         return redirect('/CrudCitas')->with('success', 'Cita modificada.');
     }
+    
 
     public function delete($id) {
         $citas = Citas::findOrFail($id);
 
         $citas->delete();
 
-        return redirect()->route('citas.index')->with('success', 'Mascota eliminada');
+        return redirect()->route('citas.index')->with('success', 'Cita eliminada');
     }
 
     public function store(Request $request) {

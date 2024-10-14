@@ -49,7 +49,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/RegistroCita', [CitasController::class, 'store'])->name('citas.store');
     Route::get('/CrudCitas', [CitasController::class, 'index'])->name('citas.index');
     Route::get('/EditarCita/{id}', [CitasController::class, 'modify'])->name('citas.editar');
-    Route::post('/ActualizarCita/{id}', [CitasController::class, 'update'])->name('citas.actualizar');
+    Route::put('/ActualizarCita/{id}', [CitasController::class, 'update'])->name('citas.actualizar');
     Route::delete('/EliminarCita/{id}', [CitasController::class, 'delete'])->name('citas.delete');
 
     // Rutas para Veterinarios
