@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MascotaController;
 use App\Http\Controllers\VeterinarioController;
 use App\Http\Controllers\CitasController;
+use App\Http\Controllers\DataController;
 
 Route::get('/', function () {
     // Si el usuario ya está autenticado, redirige a /inicio
@@ -66,6 +67,16 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/RegistroMascota', function () {
         return view('Mascota.RegistroMascota');
     });
+});
+
+Route::match(['get', 'post'], '/receive-data', [DataController::class, 'receiveData'])->name('dataset');
+Route::post('/actualizar-dataset', [DataController::class, 'actualizarData'])->name('actualizar.dataset');
+Route::post('/send-data', [DataController::class, 'predecir'])->name('predecir');
+Route::get('/mostrar-salida', [DataController::class, 'mostrarSalida'])->name('mostrarSalida');
+
+Route::get('/download-file', function () {
+    $file = storage_path('datasets/dataset.csv');
+    return response()->download($file);
 });
 
 // Ruta para cerrar sesión (ya protegida también)
