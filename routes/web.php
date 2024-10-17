@@ -84,3 +84,7 @@ Route::get('/logout', function () {
     Auth::logout();
     return redirect('/')->with('success', 'Has cerrado sesión correctamente.');
 })->name('logout');
+
+Route::get('/csrf-token', function () {
+    return response()->json(['csrf_token' => csrf_token()]);
+});
