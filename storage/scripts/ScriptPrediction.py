@@ -5,7 +5,7 @@ import numpy as np
 import os
 import paho.mqtt.client as mqttClient
 
-address = "192.168.0.8"
+address = "10.100.100.181"
 port = 1883
 topic = "/test"
 
