@@ -50,13 +50,12 @@ def main():
 
                 #MQTT
                 try:
-                    client = mqtt.Client()
+                    client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
                     client.on_connect = on_connect
                     client.on_message = on_message
-                    client.connect(address, port, 60)
+                    client.connect(address, port)
 
                     client.publish(topic, class_name)
-                    print("Mensaje enviado exitosamente a MQTT")
                 except Exception as e:
                     print(f"Error en la conexión MQTT o al enviar el mensaje: {e}")
 
