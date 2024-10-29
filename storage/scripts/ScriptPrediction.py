@@ -5,15 +5,15 @@ import numpy as np
 import os
 import paho.mqtt.client as mqtt
 
-address = "192.168.0.59"
+address = "localhost"
 port = 1883
 topic = "/test"
 
-def on_connect(client, data, flags, returnCode):
-    if(returnCode == 0):
+def on_connect(client, userdata, flags, reason_code, properties):
+    if(reason_code == 0):
         print("Connnected...")
     else:
-        print(f"Connection error: {returnCode}")
+        print(f"Connection error: {reason_code}")
 
 def on_message(client, data, message):
     messageText = message.payload.decode("utf-8")
@@ -53,7 +53,7 @@ def main():
                     client = mqtt.Client()
                     client.on_connect = on_connect
                     client.on_message = on_message
-                    client.connect(address, port)
+                    client.connect(address, port, 60)
 
                     client.publish(topic, class_name)
                     print("Mensaje enviado exitosamente a MQTT")
