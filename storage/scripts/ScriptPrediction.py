@@ -61,7 +61,6 @@ def main():
 
                 # Mostrar la predicción en la consola
                 print(class_name)
-                client.disconnect()
             else:
                 print(f"Datos no válidos para la transformación {input_data}")
                 sys.exit(1)  # Código de error
