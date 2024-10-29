@@ -1,9 +1,23 @@
 import sys
 import joblib
 import json
-from sklearn import preprocessing
-import numpy as np  # Importa numpy para manejar arrays
+import numpy as np
 import os
+import paho.mqtt.client as mqttClient
+
+address = "192.168.0.8"
+port = 1883
+topic = "/test"
+
+def on_connect(client, data, flags, returnCode):
+    if(returnCode == 0):
+        print("Connnected...")
+    else:
+        print(f"Connection error: {returnCode}")
+
+def on_message(client, data, message):
+    messageText = message.payload.decode("utf-8")
+    print(f"Message topic: {message.topic}\nmessage text: {messageText}\n")
 
 def main():
     try:
@@ -36,6 +50,14 @@ def main():
                 
                 # Mostrar la predicción en la consola
                 print(class_name)
+
+                #MQTT
+                client = mqttClient.Client()
+                client.on_connect = on_connect
+                client.on_message = on_message
+                client.connect(address, port)
+
+                client.publish(topic, class_name)
             else:
                 print(f"Datos no válidos para la transformación {input_data}")
                 sys.exit(1)  # Código de error
