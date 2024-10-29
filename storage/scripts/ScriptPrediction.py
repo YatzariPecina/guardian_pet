@@ -49,12 +49,16 @@ def main():
                 class_name = label_encoder.inverse_transform(prediction)[0]
 
                 #MQTT
-                client = mqttClient.Client()
-                client.on_connect = on_connect
-                client.on_message = on_message
-                client.connect(address, port)
+                try:
+                    client = mqttClient.Client()
+                    client.on_connect = on_connect
+                    client.on_message = on_message
+                    client.connect(address, port)
 
-                client.publish(topic, class_name)
+                    client.publish(topic, class_name)
+                    print("Mensaje enviado exitosamente a MQTT")
+                except Exception as e:
+                    print(f"Error en la conexión MQTT o al enviar el mensaje: {e}")
 
                 # Mostrar la predicción en la consola
                 print(class_name)
