@@ -3,9 +3,9 @@ import joblib
 import json
 import numpy as np
 import os
-import paho.mqtt.client as mqttClient
+import paho.mqtt.client as mqtt
 
-address = "10.100.100.181"
+address = "192.168.0.59"
 port = 1883
 topic = "/test"
 
@@ -50,7 +50,7 @@ def main():
 
                 #MQTT
                 try:
-                    client = mqttClient.Client()
+                    client = mqtt.Client()
                     client.on_connect = on_connect
                     client.on_message = on_message
                     client.connect(address, port)
@@ -62,6 +62,7 @@ def main():
 
                 # Mostrar la predicción en la consola
                 print(class_name)
+                client.disconnect()
             else:
                 print(f"Datos no válidos para la transformación {input_data}")
                 sys.exit(1)  # Código de error
