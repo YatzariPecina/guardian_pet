@@ -47,9 +47,6 @@ def main():
                 prediction = modelo.predict(nuevos_datos_standar)
 
                 class_name = label_encoder.inverse_transform(prediction)[0]
-                
-                # Mostrar la predicción en la consola
-                print(class_name)
 
                 #MQTT
                 client = mqttClient.Client()
@@ -58,6 +55,9 @@ def main():
                 client.connect(address, port)
 
                 client.publish(topic, class_name)
+
+                # Mostrar la predicción en la consola
+                print(class_name)
             else:
                 print(f"Datos no válidos para la transformación {input_data}")
                 sys.exit(1)  # Código de error
