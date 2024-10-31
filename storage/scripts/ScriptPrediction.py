@@ -7,7 +7,6 @@ import paho.mqtt.client as mqtt
 
 address = "localhost"
 port = 1883
-topic = "/test"
 
 def on_connect(client, userdata, flags, reason_code, properties):
     if(reason_code == 0):
@@ -55,7 +54,7 @@ def main():
                     client.on_message = on_message
                     client.connect(address, port)
 
-                    client.publish(topic, class_name)
+                    client.publish("/" + class_name, class_name)
                 except Exception as e:
                     print(f"Error en la conexión MQTT o al enviar el mensaje: {e}")
 
